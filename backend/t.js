@@ -1,1 +1,0 @@
-knex.schema.dropTable('ongs')
