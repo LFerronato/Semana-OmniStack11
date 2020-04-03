@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
-// import * as MailComposer from "expo-mail-composer";
+import * as MailComposer from "expo-mail-composer";
 
 import logoImg from "../../assets/logo.png";
 
@@ -33,11 +33,11 @@ export default function Detail() {
   }
 
   function sendMail() {
-    // MailComposer.composeAsync({
-    //   subject: "Herói do caso: Cadelinha Atropelada",
-    //   recipients: ["lucas.fe.pelle@gmail.com"],
-    //   body: menssage
-    // });
+    MailComposer.composeAsync({
+      subject: "Herói do caso: Cadelinha Atropelada",
+      recipients: ["lucas.fe.pelle@gmail.com"],
+      body: menssage
+    });
   }
 
   function sendWhastapp() {

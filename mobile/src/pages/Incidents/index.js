@@ -13,26 +13,26 @@ export default function Incidents() {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [scroll_refresh, setScrollRefresh] = useState(false);
+  // const [scroll_refresh, setScrollRefresh] = useState(false);
 
   const navigation = useNavigation();
 
   function NavigateToDetail(incident) {
     navigation.navigate("Detail", { incident });
   }
-  function refreshIncidents() {
-    setScrollRefresh(true);
-    setPage(1);
-    setIncidents([]);
-    loadIncidents();
-  }
+  // function refreshIncidents() {
+  //   setScrollRefresh(true);
+  //   setPage(1);
+  //   setIncidents([]);
+  //   loadIncidents();
+  // }
 
   async function loadIncidents() {
     if (loading) {
       return;
     }
-
-    if (total > 0 && incidents.length === total && !scroll_refresh) {
+    // && !scroll_refresh
+    if (total > 0 && incidents.length === total) {
       return;
     }
 
@@ -46,7 +46,7 @@ export default function Incidents() {
     setTotal(resp.headers["x-total-count"]);
     setPage(page + 1);
     setLoading(false);
-    setScrollRefresh(false);
+    // setScrollRefresh(false);
   }
 
   useEffect(() => {
@@ -69,8 +69,8 @@ export default function Incidents() {
         data={incidents}
         style={styles.incidentList}
         keyExtractor={incident => String(incident.id)}
-        refreshing={scroll_refresh}
-        onRefresh={refreshIncidents}
+        // refreshing={scroll_refresh}
+        // onRefresh={refreshIncidents}
         onEndReached={loadIncidents}
         onEndReachedThreshold={0.2}
         // showsVerticalScrollIndicator={false}
