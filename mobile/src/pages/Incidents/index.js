@@ -71,7 +71,6 @@ export default function Incidents() {
         keyExtractor={incident => String(incident.id)}
         refreshing={scroll_refresh}
         onRefresh={refreshIncidents}
-        onScrollBeginDrag
         onEndReached={loadIncidents}
         onEndReachedThreshold={0.2}
         // showsVerticalScrollIndicator={false}

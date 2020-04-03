@@ -1,3 +1,5 @@
 node_modules
 # ignore my notes
 aprendendo_notes.js
+
+.env
