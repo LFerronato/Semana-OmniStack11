@@ -1,46 +1,17 @@
 // Update with your config settings.
-
+require("dotenv").config();
 module.exports = {
   production: {
-    client: "sqlite3",
+    client: "mysql",
     connection: {
-      filename: "./src/database/db.sqlite",
+      host: process.env.CNN_HOST,
+      database: process.env.CNN_DB,
+      user: process.env.CNN_USER,
+      password: process.env.CNN_PW,
     },
     migrations: {
       directory: "./src/database/migrations",
     },
     useNullAsDefault: true,
   },
-
-  staging: {
-    client: "postgresql",
-    connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
-    },
-    pool: {
-      min: 2,
-      max: 10,
-    },
-    migrations: {
-      tableName: "knex_migrations",
-    },
-  },
-
-  // production: {
-  //     client: 'postgresql',
-  //     connection: {
-  //         database: 'my_db',
-  //         user: 'username',
-  //         password: 'password'
-  //     },
-  //     pool: {
-  //         min: 2,
-  //         max: 10
-  //     },
-  //     migrations: {
-  //         tableName: 'knex_migrations'
-  //     }
-  // }
 };

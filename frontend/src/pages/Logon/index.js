@@ -9,8 +9,10 @@ import api from "../../services/api";
 export default function Logon() {
   const [id, setId] = useState("");
   const history = useHistory();
+
   async function handleLogin(e) {
     e.preventDefault();
+    // console.log(".X.X");
 
     try {
       const resp = await api.post("sessions", { id });
@@ -27,12 +29,12 @@ export default function Logon() {
     <div className="logon-container">
       <section className="form">
         <img src={logoImg} alt="Be The Hero" />
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleLogin} on>
           <h1>Faça seu Logon</h1>
           <input
             placeholder="Sua ID"
             value={id}
-            onChange={e => setId(e.target.value)}
+            onChange={(e) => setId(e.target.value)}
           />
           <button className="button" type="submit">
             Entrar

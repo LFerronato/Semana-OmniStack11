@@ -48,31 +48,31 @@ export default function Register() {
           <input
             placeholder="Nome da ONG"
             value={name}
-            onChange={e => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
             type="email"
             placeholder="E-Mail"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             placeholder="WhatsApp"
             value={whatsapp}
-            onChange={e => setWhatsapp(e.target.value)}
+            onChange={(e) => setWhatsapp(e.target.value)}
           />
 
           <div className="input-group">
             <input
               placeholder="Cidade"
               value={city}
-              onChange={e => setCity(e.target.value)}
+              onChange={(e) => setCity(e.target.value)}
             />
             <input
               placeholder="UF"
               style={{ width: 80 }}
               value={uf}
-              onChange={e => setUf(e.target.value)}
+              onChange={(e) => setUf(e.target.value)}
             />
           </div>
           <button className="button" type="submit">
