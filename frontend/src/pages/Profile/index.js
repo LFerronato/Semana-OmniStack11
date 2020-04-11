@@ -16,10 +16,10 @@ export default function Profile() {
     api
       .get("profile", {
         headers: {
-          Authorization: ongId
-        }
+          Authorization: ongId,
+        },
       })
-      .then(response => {
+      .then((response) => {
         setIncidents(response.data);
       });
   }, [ongId]);
@@ -28,11 +28,13 @@ export default function Profile() {
     try {
       await api.delete(`/incidents/${id_to_delete}`, {
         headers: {
-          Authorization: ongId
-        }
+          Authorization: ongId,
+        },
       });
 
-      setIncidents(incidents.filter(incident => incident.id !== id_to_delete));
+      setIncidents(
+        incidents.filter((incident) => incident.id !== id_to_delete)
+      );
     } catch (error) {
       alert("Erro ao deletar caso, tente novamente!");
     }
@@ -51,12 +53,12 @@ export default function Profile() {
           Cadastrar novo caso
         </Link>
         <button onClick={hadleLogout} type="button">
-          <FiPower size={18} color="#E02041" />
+          <FiPower size={20} color="#E02041" />
         </button>
       </header>
       <h1>Casos cadastrados</h1>
       <ul>
-        {incidents.map(incident => (
+        {incidents.map((incident) => (
           <li key={incident.id}>
             <strong>CASO:</strong>
             <p>{incident.title}</p>
@@ -66,7 +68,7 @@ export default function Profile() {
             <p>
               {Intl.NumberFormat("pt-BR", {
                 style: "currency",
-                currency: "BRL"
+                currency: "BRL",
               }).format(incident.value)}
             </p>
 
